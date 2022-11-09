@@ -1,8 +1,15 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getCategories } from "../services";
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories().then((newCategories) => {
+      setCategories(newCategories);
+    });
+  }, []);
 
   return (
     <>
