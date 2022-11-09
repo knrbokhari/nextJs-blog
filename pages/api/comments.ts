@@ -31,7 +31,6 @@ export default async function asynchandler(req: any, res: any) {
       }
     }
   `;
-  console.log(req.body);
 
   const result = await graphQLClient.request(query, req.body);
 
