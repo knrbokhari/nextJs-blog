@@ -17,7 +17,7 @@ const slug = ({ post }: any) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
             <PostDetail post={post} />
-            <Author />
+            <Author author={post.author} />
             <AdjacentPosts />
             <CommentsForm />
             <Comments />
