@@ -34,8 +34,8 @@ const PostCard = ({ post }: any) => {
               unoptimized
               //   loader={grpahCMSImageLoader}
               alt={post?.node?.author?.name}
-              //   height="30px"
-              //   width="30px"
+              height={30}
+              width={30}
               className="align-middle rounded-full"
               src={post?.node?.author?.photo?.url}
             />

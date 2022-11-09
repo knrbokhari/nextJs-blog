@@ -1,11 +1,24 @@
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const PostWidget = (props: any) => {
+import { getSimilarPosts, getRecentPosts } from "../services";
+
+const PostWidget = ({ categories, slug }: any) => {
   const [relatedPosts, setRelatedPosts] = useState([]);
-  const { categories, slug } = props;
+
+  useEffect(() => {
+    if (slug) {
+      getSimilarPosts(categories, slug).then((result) => {
+        setRelatedPosts(result);
+      });
+    } else {
+      getRecentPosts().then((result) => {
+        setRelatedPosts(result);
+      });
+    }
+  }, [slug]);
 
   return (
     <>
@@ -19,8 +32,8 @@ const PostWidget = (props: any) => {
               <Image
                 // loader={grpahCMSImageLoader}
                 alt={post?.title}
-                // height="60px"
-                // width="60px"
+                height={60}
+                width={60}
                 unoptimized
                 className="align-middle rounded-full"
                 src={post?.featuredImage?.url}
