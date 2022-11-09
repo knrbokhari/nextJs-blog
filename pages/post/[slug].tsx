@@ -1,5 +1,13 @@
 import React from "react";
-import { Categories, PostWidget } from "../../components";
+import {
+  AdjacentPosts,
+  Author,
+  Categories,
+  Comments,
+  CommentsForm,
+  PostDetail,
+  PostWidget,
+} from "../../components";
 import { getPostDetails, getPosts } from "../../services";
 
 const slug = ({ post }: any) => {
@@ -8,8 +16,11 @@ const slug = ({ post }: any) => {
       <div className="container mx-auto px-10 mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
-            PostDetail <br /> Author <br /> AdjacentPosts <br /> CommentsForm{" "}
-            <br /> Comments
+            <PostDetail post={post} />
+            <Author />
+            <AdjacentPosts />
+            <CommentsForm />
+            <Comments />
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">
