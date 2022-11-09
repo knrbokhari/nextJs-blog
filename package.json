@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "html-react-parser": "^3.0.4",
@@ -14,7 +15,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-multi-carousel": "^2.8.2",
-    "sass": "^1.56.0"
+    "sass": "^1.56.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "18.11.3",
