@@ -1,15 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Categories, PostCard, PostWidget } from "../components";
+import { getPosts } from "../services";
 
-const posts = [
-  {
-    title: "title",
-    excerpt: "excerpt",
-  },
-];
-
-const Home: NextPage = () => {
+const Home: NextPage = ({ posts }: any) => {
   return (
     <div className="container mx-auto mb-8">
       <Head>
@@ -35,3 +29,11 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+// Fetch data at build time
+export const getStaticProps = async () => {
+  const posts = (await getPosts()) || [];
+  return {
+    props: { posts },
+  };
+};
