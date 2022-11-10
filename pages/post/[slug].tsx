@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  AdjacentPosts,
   Author,
   Categories,
   Comments,
@@ -9,6 +8,7 @@ import {
   PostWidget,
 } from "../../components";
 import { getPostDetails, getPosts } from "../../services";
+import AdjacentPosts from "../../sections/AdjacentPosts";
 
 const slug = ({ post }: any) => {
   return (
@@ -18,6 +18,7 @@ const slug = ({ post }: any) => {
           <div className="col-span-1 lg:col-span-8">
             <PostDetail post={post} />
             <Author author={post.author} />
+            <AdjacentPosts slug={post.slug} createdAt={post.createdAt} />
             <CommentsForm slug={post.slug} />
             <Comments slug={post.slug} />
           </div>
